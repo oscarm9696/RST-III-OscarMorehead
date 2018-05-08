@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2D rogue assignment", "2D rogue assignment.csproj", "{7AC303FD-C9DA-D467-0052-6AA403C921DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2D rogue assignment.Editor", "2D rogue assignment.Editor.csproj", "{31E311BB-E60C-0371-F42F-60E6F9760B82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AC303FD-C9DA-D467-0052-6AA403C921DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AC303FD-C9DA-D467-0052-6AA403C921DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AC303FD-C9DA-D467-0052-6AA403C921DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AC303FD-C9DA-D467-0052-6AA403C921DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31E311BB-E60C-0371-F42F-60E6F9760B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E311BB-E60C-0371-F42F-60E6F9760B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E311BB-E60C-0371-F42F-60E6F9760B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E311BB-E60C-0371-F42F-60E6F9760B82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
