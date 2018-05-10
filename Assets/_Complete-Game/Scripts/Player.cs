@@ -21,6 +21,7 @@ namespace Completed
 		public AudioClip drinkSound2;				//2 of 2 Audio clips to play when player collects a soda object.
 		public AudioClip gameOverSound;				//Audio clip to play when player dies.
         public SpriteRenderer flipPlayer;
+        public Slider healthBar;
 		
 		private Animator animator;					//Used to store a reference to the Player's animator component.
 		private int food;                           //Used to store player food points total during level.
@@ -58,8 +59,10 @@ namespace Completed
 		}
 		
 		
-		private void Update ()
+		 void Update ()
 		{
+            healthBar.value = food;
+
             var left = Input.GetKeyDown(KeyCode.LeftArrow);
             var right = Input.GetKeyDown(KeyCode.RightArrow);
 
@@ -149,6 +152,8 @@ namespace Completed
 		{
 			//Every time player moves, subtract from food points total.
 			food--;
+            healthBar.value = food;
+            Debug.Log("down");
 			
 			//Update food text display to reflect current score.
 			foodText.text = "Food: " + food;
