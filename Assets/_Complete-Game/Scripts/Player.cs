@@ -20,9 +20,12 @@ namespace Completed
 		public AudioClip drinkSound1;				//1 of 2 Audio clips to play when player collects a soda object.
 		public AudioClip drinkSound2;				//2 of 2 Audio clips to play when player collects a soda object.
 		public AudioClip gameOverSound;				//Audio clip to play when player dies.
+        public SpriteRenderer flipPlayer;
 		
 		private Animator animator;					//Used to store a reference to the Player's animator component.
 		private int food;                           //Used to store player food points total during level.
+
+
  // UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
         private Vector2 touchOrigin = -Vector2.one;	//Used to store location of screen touch origin for mobile controls.
 
@@ -39,6 +42,8 @@ namespace Completed
 			
 			//Set the foodText to reflect the current player food total.
 			foodText.text = "Food: " + food;
+
+            flipPlayer = GetComponent<SpriteRenderer>();
 			
 			//Call the Start function of the MovingObject base class.
 			base.Start ();
@@ -55,6 +60,18 @@ namespace Completed
 		
 		private void Update ()
 		{
+            var left = Input.GetKeyDown(KeyCode.LeftArrow);
+            var right = Input.GetKeyDown(KeyCode.RightArrow);
+
+            if(Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                flipPlayer.flipX = true;
+                Debug.Log("Flipped");
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                flipPlayer.flipX = false;
+            }
 			//If it's not the player's turn, exit the function.
 			if(!GameManager.instance.playersTurn) return;
 			
