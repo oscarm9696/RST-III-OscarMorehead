@@ -66,12 +66,12 @@ namespace Completed
             var left = Input.GetKeyDown(KeyCode.LeftArrow);
             var right = Input.GetKeyDown(KeyCode.RightArrow);
 
-            if(Input.GetKeyDown(KeyCode.LeftArrow))
+            if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
                 flipPlayer.flipX = true;
                 Debug.Log("Flipped");
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 flipPlayer.flipX = false;
             }
@@ -153,7 +153,7 @@ namespace Completed
 			//Every time player moves, subtract from food points total.
 			food--;
             healthBar.value = food;
-            Debug.Log("down");
+           // Debug.Log("food+down");
 			
 			//Update food text display to reflect current score.
 			foodText.text = "Food: " + food;
