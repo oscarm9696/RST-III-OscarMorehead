@@ -1,5 +1,5 @@
 2017.4.1f1:3.3.0.2
-StandaloneWindows
+Android
 C:/Users/oscar/Desktop/Editor/Data/Managed/UnityEditor.dll
 C:/Users/oscar/Desktop/Editor/Data/Managed/UnityEngine/UnityEngine.dll
 C:/Users/oscar/Desktop/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll
