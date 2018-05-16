@@ -144,6 +144,8 @@ namespace Completed
 			
 			//Enable black background image gameObject.
 			levelImage.SetActive(true);
+
+            SceneManager.LoadScene("Leaderboard");
 			
 			//Disable this GameManager.
 			enabled = false;
