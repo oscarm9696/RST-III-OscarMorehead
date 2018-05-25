@@ -9,9 +9,11 @@ namespace Completed
 		public int playerDamage; 							//The amount of food points to subtract from the player when attacking.
 		public AudioClip attackSound1;						//First of two audio clips to play when attacking the player.
 		public AudioClip attackSound2;						//Second of two audio clips to play when attacking the player.
-		
-		
-		private Animator animator;							//Variable of type Animator to store a reference to the enemy's Animator component.
+
+        public static int enemyWallDamage = 2;
+
+
+        private Animator animator;							//Variable of type Animator to store a reference to the enemy's Animator component.
 		private Transform target;							//Transform to attempt to move toward each turn.
 		//private bool skipMove;                              //Boolean to determine whether or not enemy should skip a turn or move this turn.
 
@@ -95,6 +97,16 @@ namespace Completed
 			
 			//Call the RandomizeSfx function of SoundManager passing in the two audio clips to choose randomly between.
 			SoundManager.instance.RandomizeSfx (attackSound1, attackSound2);
-		}
+
+            Wall hitWall = component as Wall;
+
+            //Call the DamageWall function of the Wall we are hitting.
+            hitWall.DamageWall(enemyWallDamage);
+
+            //Set the attack trigger of the player's animation controller in order to play the player's attack animation.
+            animator.SetTrigger("enemyAttack");
+
+            //camShake.Shake(0.02f, .4f);
+        }
 	}
 }

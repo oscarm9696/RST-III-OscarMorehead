@@ -23,7 +23,7 @@ namespace Completed
 		private BoardManager boardScript;						//Store a reference to our BoardManager which will set up the level.
 
         //changed int from 1 to 0 to allow for scene 1 as start screen
-		private int level = 1;									//Current level number, expressed in game as "Day 1".
+		private int level = 3;									//Current level number, expressed in game as "Day 1".
 		private List<Enemy> enemies;							//List of all Enemy units, used to issue them move commands.
 		private bool enemiesMoving;								//Boolean to check if enemies are moving.
 		private bool doingSetup = true;							//Boolean to check if we're setting up board, prevent Player from moving during setup.
@@ -71,6 +71,7 @@ namespace Completed
         {
             instance.level++;
             instance.InitGame();
+            //InitGame();
         }
         
 		
