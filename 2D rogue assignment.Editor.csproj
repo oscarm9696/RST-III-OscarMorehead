@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>2017.4.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -299,10 +301,10 @@
   <ItemGroup>
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\TutorialInfoEditor.cs" />
-    <Compile Include="Packages\com.unity.xiaomi\UnityChannel\XiaomiSupport\Editor\AppStoreModel.cs" />
-    <Compile Include="Packages\com.unity.xiaomi\UnityChannel\XiaomiSupport\Editor\AppStoreOnboardApi.cs" />
-    <Compile Include="Packages\com.unity.xiaomi\UnityChannel\XiaomiSupport\Editor\AppStoreSettingsEditor.cs" />
-    <Compile Include="Packages\com.unity.xiaomi\UnityChannel\XiaomiSupport\Editor\XiaomiPackageNameExtension.cs" />
+    <Compile Include="C:\Users\oscar\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.xiaomi@1.0.0\UnityChannel\XiaomiSupport\Editor\AppStoreModel.cs" />
+    <Compile Include="C:\Users\oscar\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.xiaomi@1.0.0\UnityChannel\XiaomiSupport\Editor\AppStoreOnboardApi.cs" />
+    <Compile Include="C:\Users\oscar\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.xiaomi@1.0.0\UnityChannel\XiaomiSupport\Editor\AppStoreSettingsEditor.cs" />
+    <Compile Include="C:\Users\oscar\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.xiaomi@1.0.0\UnityChannel\XiaomiSupport\Editor\XiaomiPackageNameExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\OFL.txt" />

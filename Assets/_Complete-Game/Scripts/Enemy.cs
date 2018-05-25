@@ -13,7 +13,9 @@ namespace Completed
 		
 		private Animator animator;							//Variable of type Animator to store a reference to the enemy's Animator component.
 		private Transform target;							//Transform to attempt to move toward each turn.
-		private bool skipMove;								//Boolean to determine whether or not enemy should skip a turn or move this turn.
+		//private bool skipMove;                              //Boolean to determine whether or not enemy should skip a turn or move this turn.
+
+       // public CameraShake camShake;
 		
 		
 		//Start overrides the virtual Start function of the base class.
@@ -38,19 +40,19 @@ namespace Completed
 		//See comments in MovingObject for more on how base AttemptMove function works.
 		protected override void AttemptMove <T> (int xDir, int yDir)
 		{
-			//Check if skipMove is true, if so set it to false and skip this turn.
-			if(skipMove)
+			/*//Check if skipMove is true, if so set it to false and skip this turn.
+			//if(skipMove)
 			{
-				skipMove = false;
+				//skipMove = false;
 				return;
 				
-			}
+			}*/
 			
 			//Call the AttemptMove function from MovingObject.
 			base.AttemptMove <T> (xDir, yDir);
 			
 			//Now that Enemy has moved, set skipMove to true to skip next move.
-			skipMove = true;
+			//skipMove = true;
 		}
 		
 		
@@ -84,9 +86,9 @@ namespace Completed
 		{
 			//Declare hitPlayer and set it to equal the encountered component.
 			Player hitPlayer = component as Player;
-			
-			//Call the LoseFood function of hitPlayer passing it playerDamage, the amount of foodpoints to be subtracted.
-			hitPlayer.LoseFood (playerDamage);
+
+            //Call the LoseFood function of hitPlayer passing it playerDamage, the amount of foodpoints to be subtracted.
+            hitPlayer.LoseFood(playerDamage);
 			
 			//Set the attack trigger of animator to trigger Enemy attack animation.
 			animator.SetTrigger ("enemyAttack");

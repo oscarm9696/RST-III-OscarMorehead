@@ -9,12 +9,13 @@ namespace Completed
 	
 	public class GameManager : MonoBehaviour
 	{
-		public float levelStartDelay = 2f;						//Time to wait before starting level, in seconds.
+		public float levelStartDelay = 10f;						//Time to wait before starting level, in seconds.
 		public float turnDelay = 0.001f;							//Delay between each Player turn.
 		public int playerFoodPoints = 100;						//Starting value for Player food points.
 		public static GameManager instance = null;				//Static instance of GameManager which allows it to be accessed by any other script.
 		[HideInInspector] public bool playersTurn = true;		//Boolean to check if it's players turn, hidden in inspector but public.
         //public Slider healthBar;
+       
 		
 		
 		private Text levelText;									//Text to display current level number.
@@ -22,7 +23,7 @@ namespace Completed
 		private BoardManager boardScript;						//Store a reference to our BoardManager which will set up the level.
 
         //changed int from 1 to 0 to allow for scene 1 as start screen
-		private int level = 0;									//Current level number, expressed in game as "Day 1".
+		private int level = 1;									//Current level number, expressed in game as "Day 1".
 		private List<Enemy> enemies;							//List of all Enemy units, used to issue them move commands.
 		private bool enemiesMoving;								//Boolean to check if enemies are moving.
 		private bool doingSetup = true;							//Boolean to check if we're setting up board, prevent Player from moving during setup.
@@ -32,17 +33,15 @@ namespace Completed
 		//Awake is always called before any Start functions
 		void Awake()
 		{
-            //Check if instance already exists
+           
             if (instance == null)
 
-                //if not, set instance to this
                 instance = this;
-
-            //If instance already exists and it's not this:
+            
             else if (instance != this)
 
                 //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-                Destroy(gameObject);	
+                Destroy(gameObject);
 			
 			//Sets this to not be destroyed when reloading scene
 			DontDestroyOnLoad(gameObject);
@@ -68,11 +67,12 @@ namespace Completed
 
         //This is called each time a scene is loaded.
         static private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+
         {
             instance.level++;
             instance.InitGame();
         }
-
+        
 		
 		//Initializes the game for each level.
 		void InitGame()
