@@ -30,12 +30,16 @@ namespace Completed
 		public int rows = 8;											//Number of rows in our game board.
 		public Count wallCount = new Count (5, 9);						//Lower and upper limit for our random number of walls per level.
 		public Count foodCount = new Count (1, 5);						//Lower and upper limit for our random number of food items per level.
+
+        public Count bulletCount = new Count(1, 3);
+
 		public GameObject exit;											//Prefab to spawn for exit.
 		public GameObject[] floorTiles;									//Array of floor prefabs.
 		public GameObject[] wallTiles;									//Array of wall prefabs.
 		public GameObject[] foodTiles;									//Array of food prefabs.
 		public GameObject[] enemyTiles;									//Array of enemy prefabs.
 		public GameObject[] outerWallTiles;								//Array of outer tile prefabs.
+        public GameObject[] bulletTiles;
 		
 		private Transform boardHolder;									//A variable to store a reference to the transform of our Board object.
 		private List <Vector3> gridPositions = new List <Vector3> ();	//A list of possible locations to place tiles.
@@ -67,10 +71,10 @@ namespace Completed
 			boardHolder = new GameObject ("Board").transform;
 			
 			//Loop along x axis, starting from -1 (to fill corner) with floor or outerwall edge tiles.
-			for(int x = -1; x < columns + 1; x++)
+			for(int x = -2; x < columns + 2; x++)
 			{
 				//Loop along y axis, starting from -1 to place floor or outerwall tiles.
-				for(int y = -1; y < rows + 1; y++)
+				for(int y = -2; y < rows + 2; y++)
 				{
 					//Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
 					GameObject toInstantiate = floorTiles[Random.Range (0,floorTiles.Length)];
@@ -142,6 +146,8 @@ namespace Completed
 			
 			//Instantiate a random number of food tiles based on minimum and maximum, at randomized positions.
 			LayoutObjectAtRandom (foodTiles, foodCount.minimum, foodCount.maximum);
+
+            LayoutObjectAtRandom(bulletTiles, bulletCount.minimum, bulletCount.maximum);
 			
 			//Determine number of enemies based on current level number, based on a logarithmic progression
 			int enemyCount = (int)Mathf.Log(level, 2f);
@@ -150,7 +156,7 @@ namespace Completed
 			LayoutObjectAtRandom (enemyTiles, enemyCount, enemyCount);
 			
 			//Instantiate the exit tile in the upper right hand corner of our game board
-			Instantiate (exit, new Vector3 (columns - 1, rows - 1, 0f), Quaternion.identity);
+			Instantiate (exit, new Vector3 (columns -1, rows -1, 0f), Quaternion.identity);
 		}
 	}
 }
