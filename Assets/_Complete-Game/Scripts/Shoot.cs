@@ -27,11 +27,11 @@ public class Shoot : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        muzzle = transform.Find("Muzzle");
+       /* muzzle = transform.Find("Muzzle");
         if (muzzle == null)
         {
             Debug.LogError("no muzzle found");
-        }
+        }*/
         if (minAmmo == -1)
             minAmmo = ammo;
 
@@ -42,7 +42,10 @@ public class Shoot : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        if(ammo >= 6)
+        {
+            ammo = 6;
+        }
         
         if (fireRate == 0)
         {
@@ -65,7 +68,7 @@ public class Shoot : MonoBehaviour {
         Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
         Vector2 firePos = new Vector2(muzzle.position.x, muzzle.position.y);
         RaycastHit2D hit = Physics2D.Raycast(firePos, mousePosition - firePos, 100, doHit);
-        Effect();
+        //Effect();
         minAmmo--;
         audio.Play();
         Debug.DrawLine(firePos, mousePosition);
@@ -93,7 +96,7 @@ public class Shoot : MonoBehaviour {
             audio.Stop();
         }
     }
-   /* private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "bullet")
         {
@@ -101,7 +104,7 @@ public class Shoot : MonoBehaviour {
 
             other.gameObject.SetActive(false);
         }
-    }*/
+    }
 
     void Effect()
     {
