@@ -62,6 +62,7 @@ public class Shoot : MonoBehaviour {
             }
         }
     }
+    //function allows for mouse poition on screen for shooting, the fire pos of bullet, a raycast to detect a hit and also manages enemy damage and ammo count
 
     void Fire()
         {
