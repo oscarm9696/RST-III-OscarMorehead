@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour {
 
-    public float shakeTime;
-    public float shakeAmmount;
-    public float zoomIn = 1.28f;
+    public float shakeTime;               //duration of shake
+    public float shakeAmmount;            //power of camera shake
+    public float zoomIn = 1.28f;          //camera size for orthohraphic view
 
     public Vector2 velocity;
     public float timeX;
@@ -16,10 +16,14 @@ public class CameraShake : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        // sets my cam zoom
         GetComponent<Camera>().orthographicSize = zoomIn;
 	}
     private void FixedUpdate()
     {
+
+        //clamps camera to player
         float posx = Mathf.SmoothDamp(transform.position.x, player.transform.position.x, ref velocity.x, timeX);
         float posy = Mathf.SmoothDamp(transform.position.y, player.transform.position.y, ref velocity.y, timeY);
 
@@ -30,6 +34,7 @@ public class CameraShake : MonoBehaviour {
     void Update () {
 		if (shakeTime >= 0)
         {
+            //creates a 1 unit circle for the centre pos to 'shake' within
             Vector2 ShakePos = Random.insideUnitCircle * shakeAmmount;
             transform.position = new Vector3(transform.position.x + ShakePos.x, transform.position.y + ShakePos.y, transform.position.z);
             shakeTime -= Time.deltaTime;
@@ -43,6 +48,7 @@ public class CameraShake : MonoBehaviour {
         }*/
     }
 
+    //shake function which handles duration and power
     public void Shake(float shakePower, float shakeDur)
     {
         shakeTime = shakeDur;
